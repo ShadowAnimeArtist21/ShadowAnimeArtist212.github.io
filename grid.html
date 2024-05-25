@@ -1,0 +1,108 @@
+<html>
+  <head><title>CSS Grid - Step 1</title>
+  <style>
+    body{
+      margin: 0px;
+    }
+    
+    .container{
+        
+      height: 100vh;
+      display: grid;
+     grid-template-areas: 
+      "header header"
+      "content sidebar"
+      "footer footer";
+      grid-template-rows: 25% auto 15%;
+      grid-template-columns:75% auto ;
+    }
+    
+    .header{
+      background-color: #69a320;
+      grid-area:header;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .nav{
+        padding: 25px;
+        font-size:1.5em;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        transition :background-color 1s ease .7ms, color 1.5s;
+        ;
+    }
+
+    .nav:hover{
+      background-color: darkgreen;
+      color: white;
+      cursor: pointer;
+    }
+
+   
+    
+    .content{
+      background-color: #7ed957;
+      grid-area:content;
+      padding-left: 1cm;
+    }
+    
+    .sidebar{
+      background-color: d6d899;
+      grid-area:sidebar;
+      padding-right: .5cm;
+    }
+    
+    .footer{
+      background-color: red;
+      grid-area:footer;
+      animation-name: colorsplash;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      
+    }
+    
+    @keyframes colorsplash {
+  0% {background-color: yellow;}
+  25%{background-color: orange;}
+  75%{background-color: red;}
+  100%{background-color:rgb(84, 201, 140);}
+    }
+
+    @media only screen and (max-width : 700px){
+      .container{
+      
+      grid-template-rows: 20% 20% 70% 10%;
+      grid-template-columns: 100%;
+      
+      grid-template-areas:
+      "header"
+      "sidebar"
+      "content"
+      "footer"
+    }
+}
+  </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="nav"> home</div>
+        <div class="nav">About</div>
+        <div class="nav">Contact</div>
+        </div>
+      <div class="content">
+        
+          <h1>Title 1</h1>
+          <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias facere dicta dolor atque expedita aperiam maxime consequuntur neque eius excepturi, repudiandae corporis, doloremque praesentium dolores voluptates velit ipsam repellat quaerat!
+        </p>
+        <h1>Title 2</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia earum, ut voluptatum consequatur ipsa ipsum, atque delectus mollitia eaque numquam unde obcaecati quisquam distinctio velit voluptas ex eum reprehenderit ea.</p>
+        
+      </div>
+      <div class="sidebar">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id accusantium alias consectetur nulla iusto voluptas, inventore quis ut aspernatur! Soluta vero magni laboriosam tempore consequatur iste a veritatis ducimus dolore.</div>
+      <div class="footer">Footer</div>
+    </div>
+  </body>
+</html>
